@@ -5,6 +5,7 @@ import br.cefetmg.games.minigames.util.DifficultyCurve;
 import br.cefetmg.games.graphics.MultiAnimatedSprite;
 import static br.cefetmg.games.minigames.CatAvoider.*;
 import static br.cefetmg.games.minigames.HeadSoccer.Player.convertToRad;
+import static br.cefetmg.games.minigames.HeadSoccer.backgroundMusic;
 import br.cefetmg.games.minigames.util.TimeoutBehavior;
 import br.cefetmg.games.screens.BaseScreen;
 import com.badlogic.gdx.Gdx;
@@ -481,6 +482,11 @@ public class CatAvoider extends MiniGame {
         impact = Gdx.audio.newMusic(Gdx.files.internal("avoider/impact.mp3"));
     }
 
+    @Override
+    public void onEnd() {
+        backgroundMusic.stop();
+    }
+    
     public float getCurveValue(float value) {
         return (float) (1f / (1f + Math.pow(Math.E, -6 * (value - 0.5f))));
     }

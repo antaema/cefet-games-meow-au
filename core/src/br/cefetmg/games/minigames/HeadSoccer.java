@@ -1153,6 +1153,11 @@ public class HeadSoccer extends MiniGame {
     }
 
     @Override
+    public void onEnd() {
+        backgroundMusic.stop();
+    }
+    
+    @Override
     public String getInstructions() {
         return "Faça um gol sem levar gol";
     }
